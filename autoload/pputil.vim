@@ -24,12 +24,14 @@ function! pputil#Inc2Class()
     else
          echom 'No include line'
     endif
+    silent! call repeat#set(":call pputil#Inc2Class()\<CR>")
 endfu
 
 function! pputil#CleanUp()
     normal! ggVG=gg
     retab
     redraw | echom 'Cleaned up whole file'
+    silent! call repeat#set(":call pputil#CleanUp()\<CR>")
 endfu
 
 function! pputil#Xplode()
@@ -64,6 +66,7 @@ function! pputil#Xplode()
     endif
     " and autoindent again (just to be safe)
     normal! gv=
+    silent! call repeat#set(":call pputil#Xplode()\<CR>")
 endfu
 
 function! s:Rtrim(string)
